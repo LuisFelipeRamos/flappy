@@ -1,3 +1,4 @@
+from pickle import FALSE
 import pygame
 pygame.init()
 
@@ -15,11 +16,17 @@ def main():
     run = True
     while run:
         clock.tick(FPS)
+
+        if bird.y_pos > SCREEN_HEIGHT or bird.y_pos < 0:
+            run = False
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    bird.is_flying = True
         SCREEN.fill(BLACK)
-        bird.move()
+        bird.fly()
         bird.draw(SCREEN)
         pygame.display.update()
     pygame.quit()
