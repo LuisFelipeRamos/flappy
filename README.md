@@ -1,2 +1,2 @@
 # Flappy bird crated using pygame
-# TODO
+# not finished
