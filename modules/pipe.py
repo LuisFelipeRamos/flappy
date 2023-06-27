@@ -1,13 +1,14 @@
 import pygame
 
 from utils import *
+import random
 
 
 class Pipe:
     def __init__(self) -> None:
         self.width: float = PIPE_WIDTH
         self.gap_between_pipes: float = GAP_BETWEEN_PIPES
-        self.upper_pipe_height: float = UPPER_PIPE_HEIGHT
+        self.upper_pipe_height: float = random.uniform(a=100, b=500)
         self.color: tuple[int] = GREEN
         self.x_pos: float = 450 or SCREEN_WIDTH + self.width / 2
         self.upper_body: pygame.Rect = pygame.Rect(
