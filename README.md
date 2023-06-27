@@ -1,2 +1,1 @@
-# Flappy bird crated using pygame
-# not finished
+# Flappy bird created using pygame

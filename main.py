@@ -1,5 +1,5 @@
-from pickle import FALSE
 import pygame
+
 pygame.init()
 
 from utils import *
@@ -10,13 +10,11 @@ pygame.display.set_caption("Flappy")
 
 
 def main():
-    
-    clock = pygame.time.Clock()
-    bird = Bird()
-    run = True
+    clock: pygame.time.Clock = pygame.time.Clock()
+    bird: Bird = Bird()
+    run: bool = True
     while run:
         clock.tick(FPS)
-
         if bird.y_pos > SCREEN_HEIGHT or bird.y_pos < 0:
             run = False
         for event in pygame.event.get():
@@ -31,5 +29,6 @@ def main():
         pygame.display.update()
     pygame.quit()
 
-if (__name__ == "__main__"):
+
+if __name__ == "__main__":
     main()
