@@ -1,6 +1,7 @@
 import pygame
 
 from utils import *
+from .pipe import Pipe
 
 
 class Bird:
@@ -14,6 +15,7 @@ class Bird:
             self.x_pos, self.y_pos, self.size, self.size
         )
         self.color: tuple[int] = YELLOW
+        self.counter: int = 0
 
     def __str__(self) -> str:
         return f"{self.name}"
@@ -25,9 +27,18 @@ class Bird:
         self.y_pos -= self.velocity
         self.velocity -= GRAVITY
         self.body = pygame.Rect(self.x_pos, self.y_pos, self.size, self.size)
-    
-    def collided(self, objects: pygame.Rect) -> bool:
-        return self.body.collidelist(objects) != -1
+
+    def increment_counter(self, pipes: list[Pipe]) -> None:
+        for pipe in pipes:
+            if self.x_pos >= pipe.upper_body.x and not pipe.counted:
+                pipe.counted = True
+                self.counter += 1
+
+    def collided(self, pipes: list[Pipe]) -> bool:
+        pipes_bodies: list[pygame.Rect] = [pipe.upper_body for pipe in pipes] + [
+            pipe.lower_body for pipe in pipes
+        ]
+        return self.body.collidelist(pipes_bodies) != -1
 
     def draw(self, screen) -> None:
         pygame.draw.rect(screen, self.color, self.body)
