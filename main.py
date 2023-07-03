@@ -1,9 +1,9 @@
 import pygame
+from utils import *
+from modules import Bird, Pipe
 
 pygame.init()
 
-from utils import *
-from modules import *
 
 SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Flappy")
@@ -17,15 +17,15 @@ pygame.time.set_timer(event=PIPE_SPAWN_EVENT, millis=PIPE_SPAWN_DELAY)
 
 YELLOW_BIRD_DOWNFLAP_IMAGE = pygame.image.load("assets/sprites/yellowbird-downflap.png")
 YELLOW_BIRD_DOWNFLAP_IMAGE.convert()
-YELLOW_BIRD_DOWNFLAP_RECT: pygame.Rect = YELLOW_BIRD_DOWNFLAP_IMAGE.get_rect()
 
 YELLOW_BIRD_MIDFLAP_IMAGE = pygame.image.load("assets/sprites/yellowbird-midflap.png")
 YELLOW_BIRD_MIDFLAP_IMAGE.convert()
-YELLOW_BIRD_MIDFLAP_RECT: pygame.Rect = YELLOW_BIRD_MIDFLAP_IMAGE.get_rect()
 
 YELLOW_BIRD_UPFLAP_IMAGE = pygame.image.load("assets/sprites/yellowbird-upflap.png")
 YELLOW_BIRD_UPFLAP_IMAGE.convert()
-YELLOW_BIRD_UPFLAP_RECT: pygame.Rect = YELLOW_BIRD_UPFLAP_IMAGE.get_rect()
+
+PIPE_IMAGE = pygame.image.load("assets/sprites/pipe-green.png")
+PIPE_IMAGE.convert()
 
 
 def main() -> None:
@@ -48,12 +48,12 @@ def main() -> None:
             elif event.type == PIPE_SPAWN_EVENT and game_started:
                 pipes.append(Pipe())
         SCREEN.fill(BLACK)
-        bird.draw(screen=SCREEN)
+        bird.draw(screen=SCREEN, image=YELLOW_BIRD_MIDFLAP_IMAGE)
         if game_started:
             bird.fly()
             for pipe in pipes:
                 pipe.move()
-                pipe.draw(screen=SCREEN)
+                pipe.draw(screen=SCREEN, image=PIPE_IMAGE)
             if pipes:
                 if pipes[0].is_out_of_bounds():
                     pipes = pipes[1:]
@@ -61,6 +61,7 @@ def main() -> None:
             if bird.collided(pipes=pipes):
                 run = False
                 print(f"{bird} died!")
+
         pygame.display.update()
     pygame.quit()
 

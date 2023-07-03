@@ -47,6 +47,15 @@ class Pipe:
     def is_out_of_bounds(self) -> bool:
         return self.x_pos + PIPE_WIDTH <= 0
 
-    def draw(self, screen) -> None:
-        pygame.draw.rect(screen, self.color, self.upper_body)
-        pygame.draw.rect(screen, self.color, self.lower_body)
+    def draw(self, screen: pygame.Surface, image) -> None:
+        upper_image_flipped = pygame.transform.flip(image, False, True)
+        screen.blit(
+            source=upper_image_flipped,
+            dest=(
+                self.upper_body.x,
+                self.upper_body.y
+                + self.upper_body.height
+                - upper_image_flipped.get_height(),
+            ),
+        )
+        screen.blit(source=image, dest=self.lower_body)

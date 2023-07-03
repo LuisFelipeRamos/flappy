@@ -14,7 +14,7 @@ class Bird:
         self.body: pygame.Rect = pygame.Rect(
             self.x_pos, self.y_pos, self.size, self.size
         )
-        self.color: tuple[int,int, int] = YELLOW
+        self.color: tuple[int, int, int] = YELLOW
         self.counter: int = 0
 
     def __str__(self) -> str:
@@ -40,5 +40,8 @@ class Bird:
         ]
         return self.body.collidelist(pipes_bodies) != -1
 
-    def draw(self, screen) -> None:
-        pygame.draw.rect(screen, self.color, self.body)
+    def draw(self, screen: pygame.Surface, image) -> None:
+        image_scaled = pygame.transform.scale(
+            surface=image, size=(self.size, self.size)
+        )
+        screen.blit(source=image_scaled, dest=self.body)
