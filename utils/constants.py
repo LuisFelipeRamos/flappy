@@ -12,14 +12,14 @@ GREEN: tuple[int, int, int] = 0, 255, 0
 # game settings
 
 FPS: int = 60
-GRAVITY: float = 0.3
+GRAVITY: float = 0.5
 
 # bird settings
 
-BIRD_INITIAL_X_POS: float = 100.0
+BIRD_INITIAL_X_POS: float = 200.0
 BIRD_INITIAL_Y_POS: float = 300.0
-BIRD_SIZE: float = 40.0
-BIRD_VEL0CITY: float = 5.0
+BIRD_SIZE: float = 45.0
+BIRD_VEL0CITY: float = 7.5
 
 # pipe settings
 

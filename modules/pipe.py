@@ -8,9 +8,9 @@ class Pipe:
     def __init__(self) -> None:
         self.width: float = PIPE_WIDTH
         self.gap_between_pipes: float = GAP_BETWEEN_PIPES
-        self.upper_pipe_height: float = random.uniform(a=100, b=500)
+        self.upper_pipe_height: float = random.uniform(a=125, b=475)
         self.color: tuple[int, int, int] = GREEN
-        self.x_pos: float = SCREEN_WIDTH + self.width / 2
+        self.x_pos: float = SCREEN_WIDTH + self.width
         self.upper_body: pygame.Rect = pygame.Rect(
             self.x_pos,
             0,
@@ -44,8 +44,10 @@ class Pipe:
             SCREEN_HEIGHT - self.upper_pipe_height - self.gap_between_pipes,
         )
 
+    """ The -10 here is used only to make the pipe disappearance smoother """
+
     def is_out_of_bounds(self) -> bool:
-        return self.x_pos + PIPE_WIDTH <= 0
+        return self.x_pos + PIPE_WIDTH < -10
 
     def draw(self, screen: pygame.Surface, image) -> None:
         upper_image_flipped = pygame.transform.flip(image, False, True)
