@@ -80,7 +80,7 @@ def main() -> None:
             if bird.collided(pipes=pipes):
                 run = False
                 print(f"{bird} died!")
-        draw_score(screen=SCREEN, score=bird.counter, position=(bird.x_pos, 100))
+        draw_score(screen=SCREEN, score=bird.counter, position=(int(bird.x_pos), 100))
         pygame.display.update()
     pygame.quit()
 
