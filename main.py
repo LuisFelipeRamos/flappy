@@ -13,6 +13,20 @@ PIPE_SPAWN_DELAY: int = 2_000
 PIPE_SPAWN_EVENT: pygame.event.Event = pygame.USEREVENT + 1
 pygame.time.set_timer(event=PIPE_SPAWN_EVENT, millis=PIPE_SPAWN_DELAY)
 
+# images
+
+YELLOW_BIRD_DOWNFLAP_IMAGE = pygame.image.load("assets/sprites/yellowbird-downflap.png")
+YELLOW_BIRD_DOWNFLAP_IMAGE.convert()
+YELLOW_BIRD_DOWNFLAP_RECT: pygame.Rect = YELLOW_BIRD_DOWNFLAP_IMAGE.get_rect()
+
+YELLOW_BIRD_MIDFLAP_IMAGE = pygame.image.load("assets/sprites/yellowbird-midflap.png")
+YELLOW_BIRD_MIDFLAP_IMAGE.convert()
+YELLOW_BIRD_MIDFLAP_RECT: pygame.Rect = YELLOW_BIRD_MIDFLAP_IMAGE.get_rect()
+
+YELLOW_BIRD_UPFLAP_IMAGE = pygame.image.load("assets/sprites/yellowbird-upflap.png")
+YELLOW_BIRD_UPFLAP_IMAGE.convert()
+YELLOW_BIRD_UPFLAP_RECT: pygame.Rect = YELLOW_BIRD_UPFLAP_IMAGE.get_rect()
+
 
 def main() -> None:
     clock: pygame.time.Clock = pygame.time.Clock()
@@ -48,7 +62,6 @@ def main() -> None:
                 run = False
                 print(f"{bird} died!")
         pygame.display.update()
-    print(bird.counter)
     pygame.quit()
 
 

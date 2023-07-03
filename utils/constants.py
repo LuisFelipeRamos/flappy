@@ -24,6 +24,6 @@ BIRD_VEL0CITY: float = 5.0
 # pipe settings
 
 GAP_BETWEEN_PIPES: float = 140.0
-PIPE_WIDTH: float = 40.0
+PIPE_WIDTH: float = 60.0
 UPPER_PIPE_HEIGHT: float = 200.0
 PIPE_VELOCITY: float = 3.0
