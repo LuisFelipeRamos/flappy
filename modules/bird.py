@@ -14,7 +14,7 @@ class Bird:
         self.body: pygame.Rect = pygame.Rect(
             self.x_pos, self.y_pos, self.size, self.size
         )
-        self.color: tuple[int] = YELLOW
+        self.color: tuple[int,int, int] = YELLOW
         self.counter: int = 0
 
     def __str__(self) -> str:

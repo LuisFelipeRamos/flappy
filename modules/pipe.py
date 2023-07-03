@@ -9,7 +9,7 @@ class Pipe:
         self.width: float = PIPE_WIDTH
         self.gap_between_pipes: float = GAP_BETWEEN_PIPES
         self.upper_pipe_height: float = random.uniform(a=100, b=500)
-        self.color: tuple[int] = GREEN
+        self.color: tuple[int, int, int] = GREEN
         self.x_pos: float = SCREEN_WIDTH + self.width / 2
         self.upper_body: pygame.Rect = pygame.Rect(
             self.x_pos,

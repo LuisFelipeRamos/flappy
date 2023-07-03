@@ -4,10 +4,10 @@ SCREEN_WIDTH, SCREEN_HEIGHT = 480, 680
 
 # colors
 
-BLACK: tuple[int] = 0, 0, 0
-WHITE: tuple[int] = 255, 255, 255
-YELLOW: tuple[int] = 255, 200, 000
-GREEN: tuple[int] = 0, 255, 0
+BLACK: tuple[int, int, int] = 0, 0, 0
+WHITE: tuple[int, int, int] = 255, 255, 255
+YELLOW: tuple[int, int, int] = 255, 200, 000
+GREEN: tuple[int, int, int] = 0, 255, 0
 
 # game settings
 

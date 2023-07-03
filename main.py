@@ -10,7 +10,7 @@ pygame.display.set_caption("Flappy")
 
 # events
 PIPE_SPAWN_DELAY: int = 2_000
-PIPE_SPAWN_EVENT: pygame.event.Event = pygame.USEREVENT + 1
+PIPE_SPAWN_EVENT: int = pygame.USEREVENT + 1
 pygame.time.set_timer(event=PIPE_SPAWN_EVENT, millis=PIPE_SPAWN_DELAY)
 
 # images
