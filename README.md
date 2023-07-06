@@ -12,3 +12,12 @@ In root directory:
 1. `python main.py`
 
 You can play with the keyboard arrows :)
+
+## NEAT
+
+Based on [Tech With Tim](https://www.youtube.com/watch?v=wQWWzBHUJWM)
+
+# TODO
+
+1. Restart env to fix broken packages
+2. Implement NEAT
